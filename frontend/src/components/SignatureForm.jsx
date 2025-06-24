@@ -23,29 +23,44 @@ export default function SignatureForm() {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!file) return;
+  e.preventDefault();
 
-    const formData = new FormData();
-    formData.append('file', file);
+  if (!file) {
+    toast.error("Please select a file before submitting.");
+    return;
+  }
 
-    setIsLoading(true);
-    try {
-      const response = await axios.post('https://signature-api-n9zv.onrender.com/api/verify/', formData);
-      const result = response.data.result;
+  const formData = new FormData();
+  formData.append("file", file);
+
+  setIsLoading(true);
+  try {
+    const response = await axios.post(
+      "https://signature-api-n9zv.onrender.com/api/verify/",
+      formData
+    );
+
+    const result = response.data.result;
+    console.log("🧠 API result:", result);
+
+    if (result === "Genuine" || result === "Forged") {
       toast.success(`✅ Verified as ${result}!`);
-
-      const timestamp = new Date().toLocaleTimeString();
-      setHistory((prev) => [
-        { name: file.name, result, time: timestamp },
-        ...prev,
-      ]);
-    } catch (error) {
-      console.error(error);
-      toast.error('❌ Verification failed.');
+    } else {
+      toast.error(`❌ Unexpected result: ${result}`);
     }
-    setIsLoading(false);
-  };
+
+    const timestamp = new Date().toLocaleTimeString();
+    setHistory((prev) => [
+      { name: file.name, result, time: timestamp },
+      ...prev,
+    ]);
+  } catch (error) {
+    console.error("Verification error:", error.response?.data || error.message);
+    toast.error("❌ Verification failed. Please try again.");
+  }
+
+  setIsLoading(false);
+};
 
 return (
   <div className="dashboard-container">
