@@ -10,7 +10,6 @@ export default function SignatureForm() {
   const [previewUrl, setPreviewUrl] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [history, setHistory] = useState([]);
-  const [verificationResult, setVerificationResult] = useState('');
 
   const onDrop = useCallback((acceptedFiles) => {
     const selectedFile = acceptedFiles[0];
