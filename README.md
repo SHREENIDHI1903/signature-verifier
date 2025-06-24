@@ -3,7 +3,7 @@
 An AI-powered full-stack application for verifying handwritten signatures using a trained machine learning model.
 
 ## 🚀 Live Demo
-👉 [View Demo]https://signature-verifier-sigma.vercel.app/
+👉 [View Demo] https://signature-verifier-sigma.vercel.app/
 
 ## 🧠 What It Does
 This web app allows users to upload a handwritten signature image and instantly checks whether the signature is genuine or forged — powered by SVM and feature extraction techniques.
@@ -51,8 +51,10 @@ Open your browser at http://localhost:3000.
 
 📷 Screenshots
 
-📄 License
-MIT License — feel free to use, fork, and build!
+📄 License and Attribution
+
+This project is licensed under the MIT License.  
+If you use or adapt this code, please give proper credit to the original author, [Shreenidhi](https://github.com/your-username), and link back to this repository.
 
 
 
