@@ -43,7 +43,11 @@ export default function SignatureForm() {
     const result = response.data.result;
     console.log("🧠 API result:", result);
 
-    
+    if (result === "Genuine" || result === "Forged") {
+      toast.success(`✅ Verified as ${result}!`);
+    } else {
+      toast.error(`❌ Unexpected result: ${result}`);
+    }
 
     if (result === "Rejected: Not a signature") {
       toast.error("❌ This doesn't appear to be a signature.");
