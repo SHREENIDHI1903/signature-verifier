@@ -53,7 +53,7 @@ async def verify_signature(file: UploadFile = File(...)):
             pred_prob = detector.predict_proba([features])[0][1]
             print(f"🧠 Signature detector confidence: {pred_prob:.2f}")
 
-            if pred_prob < 0.5:
+            if pred_prob < 0.1:
                 return {"result": "Rejected: Not a signature"}
 
 
