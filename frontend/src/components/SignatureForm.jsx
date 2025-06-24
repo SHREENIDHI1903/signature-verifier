@@ -105,8 +105,7 @@ return (
         <p>This system verifies handwritten signatures using machine learning. Here's how it works:</p>
         <ul style={{ paddingLeft: "1.2rem" }}>
           <li><strong>Step 1:</strong> A <em>Signature Detector</em> (SVM + HOG features) filters out non-signature inputs like selfies or photos.</li>
-          <li><strong>Step 2:</strong> If valid, the <em>Verification Model</em> (SVM) checks if the signature is <strong>Genuine</strong> or <strong>Forged</strong>.</li>
-          
+          <li><strong>Step 2:</strong> If valid, the <em>Verification Model</em> (SVM) checks if the signature is <strong>Genuine</strong> or <strong>Forged</strong>.</li>  
         </ul>
         <p>The detector uses <em>HOG</em> to extract edge features, feeding them into an <em>SVM</em> trained on positive and negative examples.</p>
       </div>
