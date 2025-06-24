@@ -9,7 +9,6 @@ export default function SignatureForm() {
   const [file, setFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [verificationResult, setVerificationResult] = useState("");
   const [history, setHistory] = useState([]);
 
   const onDrop = useCallback((acceptedFiles) => {
@@ -102,7 +101,7 @@ return (
         fontSize: "0.95rem"
       }}>
         <h3>🧠 How Signature Verification Works</h3>
-        <ul style={{ paddingLeft: "1.2rem" }}>
+        
         <p>This system verifies handwritten signatures using machine learning. Here's how it works:</p>
         <ul style={{ paddingLeft: "1.2rem" }}>
           <li><strong>Step 1:</strong> A <em>Signature Detector</em> (SVM + HOG features) filters out non-signature inputs like selfies or photos.</li>
