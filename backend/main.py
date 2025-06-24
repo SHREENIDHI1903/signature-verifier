@@ -7,7 +7,7 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000",
-     "https://your-frontend.vercel.app"],  # React frontend
+     "https://signature-verifier-sigma.vercel.app/"],  # React frontend
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
